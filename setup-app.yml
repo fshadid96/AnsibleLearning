@@ -1,0 +1,17 @@
+#setup-app.yml
+
+---
+  - hosts: hellonode
+    roles:
+     - role: containers
+       vars:
+         - container_group: hostContainers
+           containers_ips: '{{ containersDetails | ip_addr }}'
+       register: container_group 
+
+     - role: configProxy
+
+     - role: containers
+       vars: 
+         - container_group: proxyContainer
+       register: container_group 

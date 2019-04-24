@@ -1,0 +1,13 @@
+--- 
+  - name: start containers using the passed in dictionary
+    docker_container:
+      name: "{{ item }}"
+      state: started
+      image: "{{  vars[container_group][item].image }}"
+      detach: yes
+      auto_remove: yes
+      ports:
+        - "{{  vars[container_group][item].port }}"
+      volumes: "{{  vars[container_group][item].volume }}"
+    register: containersDetails
+    with_items: "{{ vars[container_group] }}"

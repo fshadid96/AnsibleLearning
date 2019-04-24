@@ -1,0 +1,13 @@
+---
+  - name: add reverse proxy file to httpd on the container
+    template:
+      src: "{{ template_file }}"
+      dest: "{{ config_file }}"
+ 
+  - name: uncomment the modules needed to make the container reverse proxy 
+    lineinfile: 
+      path: "{{ config_file }}" 
+      regexp: "#{{ item }}"
+      line: "{{ item }}"
+    with_items:
+      - "{{ modules }}"  

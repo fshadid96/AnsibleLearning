@@ -1,0 +1,25 @@
+---
+
+# modules to make container/server reverse proxy using a dictionary 
+modules: 
+  proxy_module: LoadModule proxy_module modules/mod_proxy.so
+  httpd_module: LoadModule proxy_http_module modules/mod_proxy_http.so
+  slotmem_shm_module: LoadModule slotmem_shm_module modules/mod_slotmem_shm.so
+  proxy_balancer_module: LoadModule proxy_balancer_module modules/mod_proxy_balancer.so
+  lbmethod_byrequests_module: Loadmodule lbmethod_byrequests_module modules/mod_lbmethod_byrequests.so
+  lbmethod_bytraffic_module: LoadModule lbmethod_bytraffic_module modules/mod_lbmethod_bytraffic.so
+
+# modules to make container/server reverse proxy 
+#modules:
+#  - LoadModule proxy_module modules/mod_proxy.so
+#  - LoadModule proxy_http_module modules/mod_proxy_http.so
+#  - LoadModule slotmem_shm_module modules/mod_slotmem_shm.so
+#  - LoadModule proxy_balancer_module modules/mod_proxy_balancer.so
+#  - Loadmodule lbmethod_byrequests_module modules/mod_lbmethod_byrequests.so
+#  - LoadModule lbmethod_bytraffic_module modules/mod_lbmethod_bytraffic.so
+
+#config file for the proxy
+config_file: '/home/farah.shadid/Desktop/ansible/httpd.conf'  
+
+#template file to get the ip addresses and it has all the configs needed to the proxy 
+template_file: '/home/farah.shadid/Desktop/playbookScripts/rolesPractice/configProxy/templates/httpd.conf.j2'

@@ -1,0 +1,6 @@
+#setup-app.yml
+
+---
+  - hosts: hellonode
+    roles: 
+     - containers

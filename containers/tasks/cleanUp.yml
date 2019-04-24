@@ -1,0 +1,6 @@
+---
+  - name: stop all docker containers from this playbook 
+    docker_container: 
+      name: "{{ item }}" 
+      state: stopped
+    with_items: "{{ vars[container_group] }}" 

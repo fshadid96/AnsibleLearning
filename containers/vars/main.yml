@@ -1,0 +1,21 @@
+---
+# vars file for containers
+
+hostContainers: 
+  hostOne: 
+    port: 8081:80  
+    image: httpd
+    volume:  /home/farah.shadid/Desktop/reverseApache/src/1/index.html:/usr/local/apache2/htdocs/index.html
+ 
+  hostTwo: 
+    port: 8082:80
+    image: httpd
+    volume:  /home/farah.shadid/Desktop/reverseApache/src/2/index.html:/usr/local/apache2/htdocs/index.html
+
+proxyContainer:
+  proxy:
+    port: 8080:80
+    image: httpd
+    volume: /home/farah.shadid/Desktop/httpd.conf:/usr/local/apache2/conf/httpd.conf
+ 
+

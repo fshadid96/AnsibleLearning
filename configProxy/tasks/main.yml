@@ -1,0 +1,4 @@
+---
+# tasks file for configProxy
+ - include: configproxyfiletask.yml
+
